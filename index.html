@@ -143,12 +143,13 @@ const PLACES = [
   { name: 'Кабинет 3',       p: [12.3, -4.35], d: [0.1, 1] },
 ];
 // проёмы в стеклянных стенах, через которые можно пройти (координаты Blender по X)
-const DOORWAYS = [ { match: 'Стекло A', x0: 8.93, x1: 9.84 }, { match: 'Стена C: glass', x0: 11.80, x1: 12.72 } ];
+const DOORWAYS = [ { re: /Стекло A/, x0: 8.93, x1: 9.84 }, { re: /Стена C:? glass/, x0: 11.80, x1: 12.72 } ];
+const N = s => (s || '').replace(/_/g, ' ');   // GLTFLoader меняет пробелы на _ и убирает двоеточия
 // двери, которые открываются: раздвижная — едет по X, распашные — поворот вокруг петли (координаты Blender)
 const DOOR_DEFS = [
   { label: 'дверь в кабинет 2', re: /П2 \| Дверь A/, type: 'slide', dx: 0.85 },
-  { label: 'входную дверь', re: /П1 \| Дверь O: (полотно|ручка)/, type: 'swing', hinge: [5.50, -0.50], angle: -Math.PI / 2 },
-  { label: 'дверь ПВХ', re: /П1 \| Дверь ПВХ: (ригель|стекло|стойка|ручка)/, type: 'swing', hinge: [6.136, -10.858], angle: -Math.PI / 2 },
+  { label: 'входную дверь', re: /П1 \| Дверь O:? (полотно|ручка)/, type: 'swing', hinge: [5.50, -0.50], angle: -Math.PI / 2 },
+  { label: 'дверь ПВХ', re: /П1 \| Дверь ПВХ:? (ригель|стекло|стойка|ручка)/, type: 'swing', hinge: [6.136, -10.858], angle: -Math.PI / 2 },
 ];
 const doors = [];
 
@@ -156,16 +157,28 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'hi
 renderer.setPixelRatio(Math.min(devicePixelRatio, isTouch ? 1.5 : 1.75));
 renderer.setSize(innerWidth, innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.05;
+renderer.toneMapping = THREE.AgXToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = !isTouch;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 $('view').appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#e9dfd1');
+scene.background = new THREE.Color('#2a241f');
 const pmrem = new THREE.PMREMGenerator(renderer);
-scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
-scene.add(new THREE.HemisphereLight(0xfff4e6, 0xcdb89c, 1.25));
-const sun = new THREE.DirectionalLight(0xfff1dd, 0.9); sun.position.set(4, 10, 3); scene.add(sun);
+scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;   // только для отражений, основной свет — светильники
+scene.add(new THREE.HemisphereLight(0xfff1e0, 0x8a7560, 0.55));
+// потолочные светильники из проекта (координаты Blender), свет тёплый 3000K
+const CEIL = [[7.2,-10.7],[7.2,-8.1],[7.2,-6.9],[7.2,-5.7],[7.2,-4.5],[6.55,-2.6],[6.55,-1.2],[9.9,-5.65],[12.5,-5.65],[9.0,-1.4],[9.0,-3.6],[12.1,-1.2],[13.3,-3.5]];
+const SHADOW_AT = new Set([1, 2, 5, 9]);          // стойка, диван, кофе-зона, кабинет 2 — с тенями (только на компьютере)
+CEIL.forEach(([x, y], i) => {
+  if (isTouch && i % 2) return;                     // на телефоне вдвое меньше источников
+  const l = new THREE.SpotLight(0xffd9b0, isTouch ? 42 : 30, 9, Math.PI / 2.4, 0.7, 2);
+  l.position.copy(B(x, y, 2.55)); l.target.position.copy(B(x, y, 0)); scene.add(l, l.target);
+  if (!isTouch && SHADOW_AT.has(i)) { l.castShadow = true; l.shadow.mapSize.set(1024, 1024); l.shadow.bias = -0.0004; l.shadow.radius = 4; }
+});
+// тёплое свечение подсветки стойки на полу и фасаде
+[[7.0,-10.4],[6.95,-9.3],[7.05,-8.6]].forEach(([x, y]) => { const p = new THREE.PointLight(0xffb36b, 1.6, 1.4, 2); p.position.copy(B(x - 0.06, y, 0.12)); scene.add(p); });
 
 const camera = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, 0.05, 200);
 let yaw = 0, pitch = 0;
@@ -214,8 +227,12 @@ loadModel().then(gltf => {
   const doorParts = DOOR_DEFS.map(() => []);
   root.traverse(o => {
     if (!o.isMesh) return;
+    const mats = Array.isArray(o.material) ? o.material : [o.material];
+    mats.forEach(m => { if (m && 'envMapIntensity' in m) m.envMapIntensity = 0.35; });
+    const transparent = mats.some(m => m && m.transparent);
+    o.castShadow = !transparent; o.receiveShadow = true;
     const n = o.name || (o.parent && o.parent.name) || '';
-    const full = n + ' ' + (o.parent ? o.parent.name : '');
+    const full = N(n + ' ' + (o.parent ? o.parent.name : ''));
     const di = DOOR_DEFS.findIndex(d => d.re.test(full));
     if (di >= 0) { o.userData.full = full; doorParts[di].push(o); return; }
     if (/Потол/i.test(full) || /Точечный светильник/.test(full)) { hideInDollhouse.push(o); return; }
@@ -330,7 +347,7 @@ function blocked(from, dir, dist) {
     const full = hit.object.userData.full || '';
     const door = hit.object.userData.door;
     if (door && door.t > 0.6) continue;                 // открытая дверь пропускает
-    const dw = DOORWAYS.find(d => full.includes(d.match));
+    const dw = DOORWAYS.find(d => d.re.test(full));
     if (dw && hit.point.x > dw.x0 && hit.point.x < dw.x1) continue;
     return true;
   }
