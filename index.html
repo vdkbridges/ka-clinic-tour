@@ -163,7 +163,7 @@ const DOORWAYS = [ { re: /Стекло A/, x0: 8.93, x1: 9.84 }, { re: /Стен
 const N = s => (s || '').replace(/_/g, ' ');   // GLTFLoader меняет пробелы на _ и убирает двоеточия
 // двери, которые открываются: раздвижная — едет по X, распашные — поворот вокруг петли (координаты Blender)
 const DOOR_DEFS = [
-  { label: 'дверь в кабинет 2', re: /П2 \| Дверь A/, type: 'slide', dx: 0.85 },
+  { label: 'дверь в кабинет 2', re: /П2 \| (Дверь A|Ручка A)/, type: 'slide', dx: 0.85 },
   { label: 'входную дверь', re: /П1 \| Дверь O:? (полотно|ручка)/, type: 'swing', hinge: [5.50, -0.50], angle: -Math.PI / 2 },
   { label: 'дверь ПВХ', re: /П1 \| Дверь ПВХ:? (ригель|стекло|стойка|ручка)/, type: 'swing', hinge: [6.136, -10.858], angle: -Math.PI / 2 },
 ];
@@ -256,6 +256,21 @@ loadModel().then(gltf => {
     const box = new THREE.Box3().setFromObject(o);
     if (box.max.y < 0.12) return;                      // напольные мелочи не мешают идти
     o.userData.full = full; colliders.push(o);
+  });
+  // мелкие детали на створке (ручки и т.п.) едут вместе с дверью, даже если у них безликие имена
+  const inDoor = new Set(doorParts.flat());
+  DOOR_DEFS.forEach((def, i) => {
+    if (!doorParts[i].length) return;
+    const box = new THREE.Box3(); doorParts[i].forEach(p => box.expandByObject(p)); box.expandByScalar(0.09);
+    root.traverse(o => {
+      if (!o.isMesh || inDoor.has(o)) return;
+      if (/Направляющ|Рамка|Стекло|Пол|Плинтус|Стены/.test(N(o.name))) return;   // неподвижные части проёма
+      const b = new THREE.Box3().setFromObject(o), sz = b.getSize(new THREE.Vector3());
+      if (Math.max(sz.x, sz.y, sz.z) > 0.6) return;
+      if (!box.containsPoint(b.getCenter(new THREE.Vector3()))) return;
+      o.userData.full = N(o.name); doorParts[i].push(o); inDoor.add(o);
+      const ci = colliders.indexOf(o); if (ci >= 0) colliders.splice(ci, 1);
+    });
   });
   DOOR_DEFS.forEach((def, i) => {
     const parts = doorParts[i]; if (!parts.length) return;
