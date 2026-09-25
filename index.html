@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>Клиника KA — 3D-тур</title>
+<title>–Ъ–ї–Є–љ–Є–Ї–∞ KA вАФ 3D-—В—Г—А</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap">
@@ -13,6 +13,8 @@
     --line:rgba(244,237,227,.14);
     color-scheme: dark;
   }
+  [hidden]{display:none!important}
+  *,*::before,*::after{box-sizing:border-box}
   html,body{height:100%;margin:0;background:var(--ink);color:var(--cream);overflow:hidden;
     font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent}
   #view{position:fixed;inset:0;touch-action:none}
@@ -77,9 +79,9 @@
 <body>
 <div id="view"></div>
 
-<div class="brand"><b>KA Medical Cosmetology</b><span>3D-тур · ресепшен и кабинеты</span></div>
+<div class="brand"><b>KA Medical Cosmetology</b><span>3D-—В—Г—А ¬Ј —А–µ—Б–µ–њ—И–µ–љ –Є –Ї–∞–±–Є–љ–µ—В—Л</span></div>
 <div class="top-actions">
-  <button class="btn" id="modeBtn" aria-pressed="false" type="button">Макет сверху</button>
+  <button class="btn" id="modeBtn" aria-pressed="false" type="button">–Ь–∞–Ї–µ—В —Б–≤–µ—А—Е—Г</button>
 </div>
 
 <div class="places"><div class="places-row" id="places"></div></div>
@@ -88,23 +90,23 @@
 
 <div class="overlay" id="overlay">
   <div class="card">
-    <h1>Прогулка по клинике</h1>
-    <p>Ресепшен, зона ожидания, кофе-зона и два процедурных кабинета в масштабе 1:1. Ходите свободно или выбирайте точку внизу экрана.</p>
+    <h1>–Я—А–Њ–≥—Г–ї–Ї–∞ –њ–Њ –Ї–ї–Є–љ–Є–Ї–µ</h1>
+    <p>–†–µ—Б–µ–њ—И–µ–љ, –Ј–Њ–љ–∞ –Њ–ґ–Є–і–∞–љ–Є—П, –Ї–Њ—Д–µ-–Ј–Њ–љ–∞ –Є –і–≤–∞ –њ—А–Њ—Ж–µ–і—Г—А–љ—Л—Е –Ї–∞–±–Є–љ–µ—В–∞ –≤ –Љ–∞—Б—И—В–∞–±–µ 1:1. –•–Њ–і–Є—В–µ —Б–≤–Њ–±–Њ–і–љ–Њ –Є–ї–Є –≤—Л–±–Є—А–∞–є—В–µ —В–Њ—З–Ї—Г –≤–љ–Є–Ј—Г —Н–Ї—А–∞–љ–∞.</p>
     <div class="keys desk-only">
-      <kbd>W A S D</kbd><span>идти (или стрелки)</span>
-      <kbd>Мышь</kbd><span>смотреть по сторонам</span>
-      <kbd>Shift</kbd><span>идти быстрее</span>
-      <kbd>Клик / E</kbd><span>открыть или закрыть дверь</span>
-      <kbd>Esc</kbd><span>освободить курсор</span>
+      <kbd>W A S D</kbd><span>–Є–і—В–Є (–Є–ї–Є —Б—В—А–µ–ї–Ї–Є)</span>
+      <kbd>–Ь—Л—И—М</kbd><span>—Б–Љ–Њ—В—А–µ—В—М –њ–Њ —Б—В–Њ—А–Њ–љ–∞–Љ</span>
+      <kbd>Shift</kbd><span>–Є–і—В–Є –±—Л—Б—В—А–µ–µ</span>
+      <kbd>–Ъ–ї–Є–Ї / E</kbd><span>–Њ—В–Ї—А—Л—В—М –Є–ї–Є –Ј–∞–Ї—А—Л—В—М –і–≤–µ—А—М</span>
+      <kbd>Esc</kbd><span>–Њ—Б–≤–Њ–±–Њ–і–Є—В—М –Ї—Г—А—Б–Њ—А</span>
     </div>
     <div class="keys touch-only">
-      <kbd>Джойстик</kbd><span>идти (слева внизу)</span>
-      <kbd>Свайп</kbd><span>смотреть по сторонам</span>
-      <kbd>Касание</kbd><span>открыть или закрыть дверь</span>
+      <kbd>–Ф–ґ–Њ–є—Б—В–Є–Ї</kbd><span>–Є–і—В–Є (—Б–ї–µ–≤–∞ –≤–љ–Є–Ј—Г)</span>
+      <kbd>–°–≤–∞–є–њ</kbd><span>—Б–Љ–Њ—В—А–µ—В—М –њ–Њ —Б—В–Њ—А–Њ–љ–∞–Љ</span>
+      <kbd>–Ъ–∞—Б–∞–љ–Є–µ</kbd><span>–Њ—В–Ї—А—Л—В—М –Є–ї–Є –Ј–∞–Ї—А—Л—В—М –і–≤–µ—А—М</span>
     </div>
     <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
-    <div class="status" id="status">Загружаем модель…</div>
-    <button class="go" id="goBtn" type="button" disabled>Войти</button>
+    <div class="status" id="status">–Ч–∞–≥—А—Г–ґ–∞–µ–Љ –Љ–Њ–і–µ–ї—МвА¶</div>
+    <button class="go" id="goBtn" type="button" disabled>–Т–Њ–є—В–Є</button>
   </div>
 </div>
 
@@ -130,23 +132,23 @@ const yawFrom = (dx, dy) => Math.atan2(-dx, dy);
 const EYE = 1.6;
 
 const PLACES = [
-  { name: 'Вход',            p: [7.0, -3.9],  d: [0, -1] },
-  { name: 'Стойка',          p: [6.45, -9.35], d: [1, -0.1] },
-  { name: 'Администратор',   p: [8.0, -8.7],  d: [-0.35, -1] },
-  { name: 'Зона ожидания',   p: [6.55, -6.35], d: [1, -0.25] },
-  { name: 'Стена с ТВ',      p: [7.35, -6.6], d: [-1, 0] },
-  { name: 'Кофе-зона',       p: [6.95, -2.3], d: [-1, -0.25] },
-  { name: 'Витрина',         p: [6.35, -1.85], d: [1, 0.05] },
-  { name: 'Кабинет 2',       p: [9.4, -4.35], d: [0.05, 1] },
-  { name: 'Кабинет 3',       p: [12.3, -4.35], d: [0.1, 1] },
+  { name: '–Т—Е–Њ–і',            p: [7.0, -3.9],  d: [0, -1] },
+  { name: '–°—В–Њ–є–Ї–∞',          p: [6.45, -9.35], d: [1, -0.1] },
+  { name: '–Р–і–Љ–Є–љ–Є—Б—В—А–∞—В–Њ—А',   p: [8.0, -8.7],  d: [-0.35, -1] },
+  { name: '–Ч–Њ–љ–∞ –Њ–ґ–Є–і–∞–љ–Є—П',   p: [6.55, -6.35], d: [1, -0.25] },
+  { name: '–°—В–µ–љ–∞ —Б –Ґ–Т',      p: [7.35, -6.6], d: [-1, 0] },
+  { name: '–Ъ–Њ—Д–µ-–Ј–Њ–љ–∞',       p: [6.95, -2.3], d: [-1, -0.25] },
+  { name: '–Т–Є—В—А–Є–љ–∞',         p: [6.35, -1.85], d: [1, 0.05] },
+  { name: '–Ъ–∞–±–Є–љ–µ—В 2',       p: [9.4, -4.35], d: [0.05, 1] },
+  { name: '–Ъ–∞–±–Є–љ–µ—В 3',       p: [12.3, -4.35], d: [0.1, 1] },
 ];
-// проёмы в стеклянных стенах, через которые можно пройти (координаты Blender по X)
-const DOORWAYS = [ { match: 'Стекло A', x0: 8.93, x1: 9.84 }, { match: 'Стена C: glass', x0: 11.80, x1: 12.72 } ];
-// двери, которые открываются: раздвижная — едет по X, распашные — поворот вокруг петли (координаты Blender)
+// –њ—А–Њ—С–Љ—Л –≤ —Б—В–µ–Ї–ї—П–љ–љ—Л—Е —Б—В–µ–љ–∞—Е, —З–µ—А–µ–Ј –Ї–Њ—В–Њ—А—Л–µ –Љ–Њ–ґ–љ–Њ –њ—А–Њ–є—В–Є (–Ї–Њ–Њ—А–і–Є–љ–∞—В—Л Blender –њ–Њ X)
+const DOORWAYS = [ { match: '–°—В–µ–Ї–ї–Њ A', x0: 8.93, x1: 9.84 }, { match: '–°—В–µ–љ–∞ C: glass', x0: 11.80, x1: 12.72 } ];
+// –і–≤–µ—А–Є, –Ї–Њ—В–Њ—А—Л–µ –Њ—В–Ї—А—Л–≤–∞—О—В—Б—П: —А–∞–Ј–і–≤–Є–ґ–љ–∞—П вАФ –µ–і–µ—В –њ–Њ X, —А–∞—Б–њ–∞—И–љ—Л–µ вАФ –њ–Њ–≤–Њ—А–Њ—В –≤–Њ–Ї—А—Г–≥ –њ–µ—В–ї–Є (–Ї–Њ–Њ—А–і–Є–љ–∞—В—Л Blender)
 const DOOR_DEFS = [
-  { label: 'дверь в кабинет 2', re: /П2 \| Дверь A/, type: 'slide', dx: 0.85 },
-  { label: 'входную дверь', re: /П1 \| Дверь O: (полотно|ручка)/, type: 'swing', hinge: [5.50, -0.50], angle: -Math.PI / 2 },
-  { label: 'дверь ПВХ', re: /П1 \| Дверь ПВХ: (ригель|стекло|стойка|ручка)/, type: 'swing', hinge: [6.136, -10.858], angle: -Math.PI / 2 },
+  { label: '–і–≤–µ—А—М –≤ –Ї–∞–±–Є–љ–µ—В 2', re: /–Я2 \| –Ф–≤–µ—А—М A/, type: 'slide', dx: 0.85 },
+  { label: '–≤—Е–Њ–і–љ—Г—О –і–≤–µ—А—М', re: /–Я1 \| –Ф–≤–µ—А—М O: (–њ–Њ–ї–Њ—В–љ–Њ|—А—Г—З–Ї–∞)/, type: 'swing', hinge: [5.50, -0.50], angle: -Math.PI / 2 },
+  { label: '–і–≤–µ—А—М –Я–Т–•', re: /–Я1 \| –Ф–≤–µ—А—М –Я–Т–•: (—А–Є–≥–µ–ї—М|—Б—В–µ–Ї–ї–Њ|—Б—В–Њ–є–Ї–∞|—А—Г—З–Ї–∞)/, type: 'swing', hinge: [6.136, -10.858], angle: -Math.PI / 2 },
 ];
 const doors = [];
 
@@ -173,12 +175,12 @@ function setView(p, d) {
 }
 function applyLook() { camera.rotation.set(pitch, yaw, 0, 'YXZ'); }
 
-// ---------- загрузка ----------
+// ---------- –Ј–∞–≥—А—Г–Ј–Ї–∞ ----------
 const colliders = [], hideInDollhouse = [];
 const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
 function progress(loaded, total) {
   if (!total) return; const k = loaded / total; $('barFill').style.width = (k * 100).toFixed(0) + '%';
-  $('status').textContent = `Загружаем модель… ${(loaded / 1e6).toFixed(1)} из ${(total / 1e6).toFixed(1)} МБ`;
+  $('status').textContent = `–Ч–∞–≥—А—Г–ґ–∞–µ–Љ –Љ–Њ–і–µ–ї—МвА¶ ${(loaded / 1e6).toFixed(1)} –Є–Ј ${(total / 1e6).toFixed(1)} –Ь–С`;
 }
 async function fetchWithProgress(url) {
   const res = await fetch(url); if (!res.ok) throw new Error(res.status + ' ' + url);
@@ -188,7 +190,7 @@ async function fetchWithProgress(url) {
   for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); got += value.length; progress(got, total); }
   const out = new Uint8Array(got); let o = 0; for (const p of parts) { out.set(p, o); o += p.length; } return out;
 }
-function base64ToBytes(bytes) {            // модель лежит рядом как base64-текст
+function base64ToBytes(bytes) {            // –Љ–Њ–і–µ–ї—М –ї–µ–ґ–Є—В —А—П–і–Њ–Љ –Ї–∞–Ї base64-—В–µ–Ї—Б—В
   const map = new Uint8Array(128); const abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
   for (let i = 0; i < 64; i++) map[abc.charCodeAt(i)] = i;
   let n = bytes.length; while (n && (bytes[n - 1] === 61 || bytes[n - 1] < 43)) n--;
@@ -203,8 +205,8 @@ function base64ToBytes(bytes) {            // модель лежит рядом
 async function loadModel() {
   let buf;
   try { buf = base64ToBytes(await fetchWithProgress('clinic.glb.txt')).buffer; }
-  catch (e) { buf = (await fetchWithProgress('clinic.glb')).buffer; }   // вариант для обычного хостинга
-  $('status').textContent = 'Собираем сцену…';
+  catch (e) { buf = (await fetchWithProgress('clinic.glb')).buffer; }   // –≤–∞—А–Є–∞–љ—В –і–ї—П –Њ–±—Л—З–љ–Њ–≥–Њ —Е–Њ—Б—В–Є–љ–≥–∞
+  $('status').textContent = '–°–Њ–±–Є—А–∞–µ–Љ —Б—Ж–µ–љ—ГвА¶';
   return new Promise((ok, bad) => loader.parse(buf, '', ok, bad));
 }
 loadModel().then(gltf => {
@@ -216,10 +218,10 @@ loadModel().then(gltf => {
     const full = n + ' ' + (o.parent ? o.parent.name : '');
     const di = DOOR_DEFS.findIndex(d => d.re.test(full));
     if (di >= 0) { o.userData.full = full; doorParts[di].push(o); return; }
-    if (/Потол/i.test(full) || /Точечный светильник/.test(full)) { hideInDollhouse.push(o); return; }
-    if (/\| Пол( |$)|Пол вдоль|Плинтус|txt|Лист|эвкалипт|Размер/.test(full)) return;
+    if (/–Я–Њ—В–Њ–ї/i.test(full) || /–Ґ–Њ—З–µ—З–љ—Л–є —Б–≤–µ—В–Є–ї—М–љ–Є–Ї/.test(full)) { hideInDollhouse.push(o); return; }
+    if (/\| –Я–Њ–ї( |$)|–Я–Њ–ї –≤–і–Њ–ї—М|–Я–ї–Є–љ—В—Г—Б|txt|–Ы–Є—Б—В|—Н–≤–Ї–∞–ї–Є–њ—В|–†–∞–Ј–Љ–µ—А/.test(full)) return;
     const box = new THREE.Box3().setFromObject(o);
-    if (box.max.y < 0.12) return;                      // напольные мелочи не мешают идти
+    if (box.max.y < 0.12) return;                      // –љ–∞–њ–Њ–ї—М–љ—Л–µ –Љ–µ–ї–Њ—З–Є –љ–µ –Љ–µ—И–∞—О—В –Є–і—В–Є
     o.userData.full = full; colliders.push(o);
   });
   DOOR_DEFS.forEach((def, i) => {
@@ -235,13 +237,13 @@ loadModel().then(gltf => {
     parts.forEach(p => { p.userData.door = door; colliders.push(p); });
     doors.push(door);
   });
-  $('status').textContent = 'Модель загружена';
+  $('status').textContent = '–Ь–Њ–і–µ–ї—М –Ј–∞–≥—А—Г–ґ–µ–љ–∞';
   $('barFill').style.width = '100%';
   const go = $('goBtn'); go.disabled = false; go.focus();
   setView(PLACES[0].p, PLACES[0].d);
-}).catch(err => { $('status').textContent = 'Не удалось загрузить модель. Обновите страницу.'; console.error(err); });
+}).catch(err => { $('status').textContent = '–Э–µ —Г–і–∞–ї–Њ—Б—М –Ј–∞–≥—А—Г–Ј–Є—В—М –Љ–Њ–і–µ–ї—М. –Ю–±–љ–Њ–≤–Є—В–µ —Б—В—А–∞–љ–Є—Ж—Г.'; console.error(err); });
 
-// ---------- точки обзора ----------
+// ---------- —В–Њ—З–Ї–Є –Њ–±–Ј–Њ—А–∞ ----------
 const placesEl = $('places');
 PLACES.forEach((pl, i) => {
   const b = document.createElement('button'); b.className = 'chip'; b.type = 'button'; b.textContent = pl.name; b.id = 'place' + i;
@@ -256,7 +258,7 @@ function flyTo(pl) {
   fly = { from: camera.position.clone(), to, y0: yaw, dy, p0: pitch, t: 0 };
 }
 
-// ---------- режим «макет» ----------
+// ---------- —А–µ–ґ–Є–Љ ¬Ђ–Љ–∞–Ї–µ—В¬ї ----------
 let dollhouse = false;
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.enabled = false; orbit.enableDamping = true; orbit.maxPolarAngle = Math.PI * 0.47;
@@ -264,13 +266,13 @@ orbit.target.copy(B(9.2, -5.4, 0)); orbit.minDistance = 4; orbit.maxDistance = 3
 const walkState = { pos: new THREE.Vector3(), yaw: 0, pitch: 0 };
 function toggleMode(on = !dollhouse) {
   dollhouse = on; $('modeBtn').setAttribute('aria-pressed', String(on));
-  $('modeBtn').textContent = on ? 'Вернуться в тур' : 'Макет сверху';
+  $('modeBtn').textContent = on ? '–Т–µ—А–љ—Г—В—М—Б—П –≤ —В—Г—А' : '–Ь–∞–Ї–µ—В —Б–≤–µ—А—Е—Г';
   hideInDollhouse.forEach(o => o.visible = !on);
   if (on) {
     if (document.pointerLockElement) document.exitPointerLock();
     walkState.pos.copy(camera.position); walkState.yaw = yaw; walkState.pitch = pitch;
     camera.position.copy(B(3.2, -13.5, 13)); orbit.enabled = true; orbit.update();
-    $('stick').hidden = true; showHint(isTouch ? 'Крутите макет пальцем, щипок — приблизить' : 'Мышь — вращать, колесо — приблизить');
+    $('stick').hidden = true; showHint(isTouch ? '–Ъ—А—Г—В–Є—В–µ –Љ–∞–Ї–µ—В –њ–∞–ї—М—Ж–µ–Љ, —Й–Є–њ–Њ–Ї вАФ –њ—А–Є–±–ї–Є–Ј–Є—В—М' : '–Ь—Л—И—М вАФ –≤—А–∞—Й–∞—В—М, –Ї–Њ–ї–µ—Б–Њ вАФ –њ—А–Є–±–ї–Є–Ј–Є—В—М');
   } else {
     orbit.enabled = false; camera.position.copy(walkState.pos); yaw = walkState.yaw; pitch = walkState.pitch; applyLook();
     $('stick').hidden = !isTouch;
@@ -278,11 +280,11 @@ function toggleMode(on = !dollhouse) {
 }
 $('modeBtn').addEventListener('click', () => toggleMode());
 
-// ---------- вход ----------
+// ---------- –≤—Е–Њ–і ----------
 $('goBtn').addEventListener('click', () => {
   $('overlay').hidden = true; markPlace(0);
-  if (isTouch) { $('stick').hidden = false; showHint('Джойстик — идти, свайп — смотреть'); }
-  else { requestLock(); showHint('Кликните по сцене, чтобы управлять мышью · Esc — отпустить'); }
+  if (isTouch) { $('stick').hidden = false; showHint('–Ф–ґ–Њ–є—Б—В–Є–Ї вАФ –Є–і—В–Є, —Б–≤–∞–є–њ вАФ —Б–Љ–Њ—В—А–µ—В—М'); }
+  else { requestLock(); showHint('–Ъ–ї–Є–Ї–љ–Є—В–µ –њ–Њ —Б—Ж–µ–љ–µ, —З—В–Њ–±—Л —Г–њ—А–∞–≤–ї—П—В—М –Љ—Л—И—М—О ¬Ј Esc вАФ –Њ—В–њ—Г—Б—В–Є—В—М'); }
 });
 function requestLock() { try { const r = renderer.domElement.requestPointerLock(); if (r && r.catch) r.catch(() => {}); } catch (e) {} }
 renderer.domElement.addEventListener('click', () => { if (!isTouch && !dollhouse && !document.pointerLockElement) requestLock(); });
@@ -290,13 +292,13 @@ let hintTimer;
 function showHint(t) { const h = $('hint'); h.textContent = t; h.hidden = false; h.style.opacity = 1;
   clearTimeout(hintTimer); hintTimer = setTimeout(() => { h.style.opacity = 0; }, 4200); }
 
-// ---------- обзор мышью / пальцем ----------
+// ---------- –Њ–±–Ј–Њ—А –Љ—Л—И—М—О / –њ–∞–ї—М—Ж–µ–Љ ----------
 const LOOK = 0.0022;
 document.addEventListener('mousemove', e => {
   if (dollhouse || !document.pointerLockElement) return;
   yaw -= e.movementX * LOOK; pitch -= e.movementY * LOOK; pitch = Math.max(-1.3, Math.min(1.3, pitch)); applyLook(); fly = null;
 });
-let drag = null; // перетаскивание без захвата курсора и на телефоне
+let drag = null; // –њ–µ—А–µ—В–∞—Б–Ї–Є–≤–∞–љ–Є–µ –±–µ–Ј –Ј–∞—Е–≤–∞—В–∞ –Ї—Г—А—Б–Њ—А–∞ –Є –љ–∞ —В–µ–ї–µ—Д–Њ–љ–µ
 renderer.domElement.addEventListener('pointerdown', e => { if (dollhouse || document.pointerLockElement) return; drag = { id: e.pointerId, x: e.clientX, y: e.clientY }; });
 addEventListener('pointermove', e => {
   if (!drag || e.pointerId !== drag.id) return;
@@ -306,7 +308,7 @@ addEventListener('pointermove', e => {
 });
 addEventListener('pointerup', e => { if (drag && e.pointerId === drag.id) drag = null; });
 
-// ---------- клавиатура и джойстик ----------
+// ---------- –Ї–ї–∞–≤–Є–∞—В—Г—А–∞ –Є –і–ґ–Њ–є—Б—В–Є–Ї ----------
 const keys = {};
 addEventListener('keydown', e => { keys[e.code] = true; if (e.code.startsWith('Arrow')) e.preventDefault(); });
 addEventListener('keyup', e => { keys[e.code] = false; });
@@ -317,7 +319,7 @@ stick.addEventListener('pointerdown', e => { stickId = e.pointerId; stick.setPoi
 stick.addEventListener('pointermove', e => { if (e.pointerId === stickId) stickMove(e); });
 stick.addEventListener('pointerup', () => { stickId = null; stickV = { x: 0, y: 0 }; knob.style.transform = ''; });
 
-// ---------- ходьба со столкновениями ----------
+// ---------- —Е–Њ–і—М–±–∞ —Б–Њ —Б—В–Њ–ї–Ї–љ–Њ–≤–µ–љ–Є—П–Љ–Є ----------
 const ray = new THREE.Raycaster(); ray.far = 1.0;
 const tmp = new THREE.Vector3();
 function blocked(from, dir, dist) {
@@ -327,7 +329,7 @@ function blocked(from, dir, dist) {
     if (!hit) continue;
     const full = hit.object.userData.full || '';
     const door = hit.object.userData.door;
-    if (door && door.t > 0.6) continue;                 // открытая дверь пропускает
+    if (door && door.t > 0.6) continue;                 // –Њ—В–Ї—А—Л—В–∞—П –і–≤–µ—А—М –њ—А–Њ–њ—Г—Б–Ї–∞–µ—В
     const dw = DOORWAYS.find(d => full.includes(d.match));
     if (dw && hit.point.x > dw.x0 && hit.point.x < dw.x1) continue;
     return true;
@@ -345,14 +347,14 @@ function walk(dt) {
   const fw = new THREE.Vector3(-Math.sin(yaw), 0, -Math.cos(yaw)), rt = new THREE.Vector3(Math.cos(yaw), 0, -Math.sin(yaw));
   const mv = fw.multiplyScalar(f).add(rt.multiplyScalar(s)); const len = mv.length(); if (len > 1) mv.divideScalar(len);
   mv.multiplyScalar(speed);
-  // по осям отдельно — можно скользить вдоль стены
+  // –њ–Њ –Њ—Б—П–Љ –Њ—В–і–µ–ї—М–љ–Њ вАФ –Љ–Њ–ґ–љ–Њ —Б–Ї–Њ–ї—М–Ј–Є—В—М –≤–і–Њ–ї—М —Б—В–µ–љ—Л
   for (const axis of [new THREE.Vector3(mv.x, 0, 0), new THREE.Vector3(0, 0, mv.z)]) {
     const d = axis.length(); if (d < 1e-5) continue;
     if (!blocked(camera.position, axis.clone().normalize(), d)) camera.position.add(axis);
   }
 }
 
-// ---------- двери ----------
+// ---------- –і–≤–µ—А–Є ----------
 const pick = new THREE.Raycaster(); pick.far = 3.2;
 const doorMeshes = () => doors.flatMap(d => d.parts);
 function doorAt(ndcX, ndcY) {
@@ -365,7 +367,7 @@ function nearestDoor() {
   for (const d of doors) { d.parts[0].getWorldPosition(wp); const dist = Math.hypot(wp.x - camera.position.x, wp.z - camera.position.z); if (dist < bd) { bd = dist; best = d; } }
   return best;
 }
-function toggleDoor(d) { if (!d) return false; d.open = !d.open; showHint(d.open ? 'Открываем ' + d.def.label : 'Закрываем ' + d.def.label); return true; }
+function toggleDoor(d) { if (!d) return false; d.open = !d.open; showHint(d.open ? '–Ю—В–Ї—А—Л–≤–∞–µ–Љ ' + d.def.label : '–Ч–∞–Ї—А—Л–≤–∞–µ–Љ ' + d.def.label); return true; }
 addEventListener('keydown', e => { if (e.code === 'KeyE' && !dollhouse) toggleDoor(doorAt(0, 0) || nearestDoor()); });
 renderer.domElement.addEventListener('mousedown', e => { if (document.pointerLockElement && !dollhouse && e.button === 0) toggleDoor(doorAt(0, 0)); });
 let tapStart = null;
@@ -388,11 +390,11 @@ function animateDoors(dt) {
   }
   lookTimer += dt; if (lookTimer < 0.25 || dollhouse) return; lookTimer = 0;
   const d = doorAt(0, 0) || null;
-  if (d && d !== doorTipShown) showHint((isTouch ? 'Коснитесь, чтобы ' : 'Клик или E, чтобы ') + (d.open ? 'закрыть ' : 'открыть ') + d.def.label);
+  if (d && d !== doorTipShown) showHint((isTouch ? '–Ъ–Њ—Б–љ–Є—В–µ—Б—М, —З—В–Њ–±—Л ' : '–Ъ–ї–Є–Ї –Є–ї–Є E, —З—В–Њ–±—Л ') + (d.open ? '–Ј–∞–Ї—А—Л—В—М ' : '–Њ—В–Ї—А—Л—В—М ') + d.def.label);
   doorTipShown = d;
 }
 
-// ---------- цикл ----------
+// ---------- —Ж–Є–Ї–ї ----------
 const clock = new THREE.Clock();
 renderer.setAnimationLoop(() => {
   const dt = Math.min(clock.getDelta(), 0.05);
