@@ -381,7 +381,7 @@ function doorAt(ndcX, ndcY) {
 }
 function nearestDoor() {
   let best = null, bd = 2.4; const wp = new THREE.Vector3();
-  for (const d of doors) { d.parts[0].getWorldPosition(wp); const dist = Math.hypot(wp.x - camera.position.x, wp.z - camera.position.z); if (dist < bd) { bd = dist; best = d; } }
+  for (const d of doors) { new THREE.Box3().setFromObject(d.parts[0]).getCenter(wp); const dist = Math.hypot(wp.x - camera.position.x, wp.z - camera.position.z); if (dist < bd) { bd = dist; best = d; } }
   return best;
 }
 function toggleDoor(d) { if (!d) return false; d.open = !d.open; showHint(d.open ? 'Открываем ' + d.def.label : 'Закрываем ' + d.def.label); return true; }
