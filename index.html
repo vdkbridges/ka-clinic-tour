@@ -71,7 +71,23 @@
   #stick i{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;
     background:var(--gold);opacity:.85}
   .touch-only{display:none}
-  @media (pointer:coarse){ .touch-only{display:block} .desk-only{display:none} }
+  @media (pointer:coarse){ .touch-only:not(.keys){display:block} .keys.touch-only{display:grid} .desk-only{display:none} }
+  /* стартовый экран: ничего не просвечивает под текстом */
+  body.intro .brand, body.intro .top-actions, body.intro .places, body.intro #stick, body.intro .hint{visibility:hidden}
+  .brand{max-width:calc(100% - 190px)}
+  .brand b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media (max-width:560px){
+    .brand{max-width:calc(100% - 150px)}
+    .brand b{font-size:17px}
+    .brand span{display:none}
+    .btn{padding:8px 12px;font-size:12px}
+    .places-row{background:#1f1a16;border-color:rgba(244,237,227,.24)}
+    .chip{padding:10px 12px;font-size:13px;color:#f4ede3}
+    .hint{bottom:auto;top:calc(58px + env(safe-area-inset-top,0px));white-space:normal;text-align:center;max-width:calc(100% - 32px)}
+    #stick{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+    .card h1{font-size:34px}
+    .keys{grid-template-columns:auto 1fr;gap:10px 12px}
+  }
   @media (prefers-reduced-motion: reduce){ .hint,.bar i{transition:none} }
 </style>
 
@@ -298,8 +314,9 @@ function toggleMode(on = !dollhouse) {
 $('modeBtn').addEventListener('click', () => toggleMode());
 
 // ---------- вход ----------
+document.body.classList.add('intro');
 $('goBtn').addEventListener('click', () => {
-  $('overlay').hidden = true; markPlace(0);
+  $('overlay').hidden = true; document.body.classList.remove('intro'); markPlace(0);
   if (isTouch) { $('stick').hidden = false; showHint('Джойстик — идти, свайп — смотреть'); }
   else { requestLock(); showHint('Кликните по сцене, чтобы управлять мышью · Esc — отпустить'); }
 });
